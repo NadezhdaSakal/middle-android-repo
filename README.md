@@ -1,0 +1,1 @@
+https://github.com/NadezhdaSakal/middle-android-repo/pull/1
