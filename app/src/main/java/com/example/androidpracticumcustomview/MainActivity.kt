@@ -1,8 +1,6 @@
 package com.example.androidpracticumcustomview
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.ComponentActivity
@@ -29,7 +27,7 @@ class MainActivity : ComponentActivity() {
         setContentView(customContainer)
 
         val firstView = TextView(this).apply {
-            text = "firstView"
+            text = "First View"
             layoutParams = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -37,7 +35,7 @@ class MainActivity : ComponentActivity() {
         }
 
         val secondView = TextView(this).apply {
-            text = "secondView"
+            text = "Second View"
             layoutParams = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
