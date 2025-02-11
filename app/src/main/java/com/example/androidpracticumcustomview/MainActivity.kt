@@ -19,12 +19,11 @@ class MainActivity : ComponentActivity() {
         /*
         Раскомментируйте нужный вариант
          */
-    //    startXmlPracticum() // «традиционный» android (XML)
-          setContent { // Jetpack Compose
-            MainScreen()
+        startXmlPracticum() // «традиционный» android (XML)
+        //      setContent { // Jetpack Compose
+        //        MainScreen()
     }
 
-        /*
 
     private fun startXmlPracticum() {
         val customContainer = CustomContainer(this)
@@ -48,6 +47,6 @@ class MainActivity : ComponentActivity() {
         customContainer.addView(firstView)
         customContainer.addView(secondView)
 
-         */
+
     }
 }
