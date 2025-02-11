@@ -2,14 +2,13 @@ package com.example.androidpracticumcustomview.ui.theme
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
-import androidx.compose.ui.layout.Layout
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.layout.Layout
 import kotlinx.coroutines.launch
 
 /*
@@ -21,20 +20,20 @@ import kotlinx.coroutines.launch
 Предусмотрите параметризацию длительности анимации.
  */
 
-const val ALPHA_DURATION = 2000
-const val MOVEMENT_DURATION = 5000
+private const val ALPHA_DURATION = 2000
+private const val MOVEMENT_DURATION = 5000
+private const val MAX_CHILD_COUNT = 2
 
 @Composable
 fun CustomContainerCompose(
     firstChild: @Composable (() -> Unit),
     secondChild: @Composable (() -> Unit)
 ) {
-    val scope = rememberCoroutineScope()
     val offsetY = remember { Animatable(0f) }
     val alpha = remember { Animatable(0f) }
     val screenHeight = remember { mutableFloatStateOf(0f) }
 
-    LaunchedEffect(scope) {
+    LaunchedEffect(Unit) {
         launch {
             offsetY.animateTo(
                 targetValue = screenHeight.floatValue / 2,
@@ -60,9 +59,9 @@ fun CustomContainerCompose(
             measurable.measure(constraints)
         }
 
-        if (placeableList.size > 2) {
+        if (placeableList.size > MAX_CHILD_COUNT) {
             throw IllegalStateException(
-                "Невозможно добавить более 2 дочерних элементов в этот контейнер"
+                "Невозможно добавить более $MAX_CHILD_COUNT дочерних элементов в этот контейнер"
             )
         }
 
