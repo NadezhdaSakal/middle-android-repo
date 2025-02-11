@@ -18,12 +18,6 @@ class CustomContainer @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
 ) : FrameLayout(context, attrs) {
 
-    private companion object {
-        const val MAX_CHILD_COUNT = 2
-        const val ALPHA_DURATION = 2000L
-        const val MOVEMENT_DURATION = 5000L
-    }
-
     init {
         setWillNotDraw(false)
     }
@@ -82,5 +76,11 @@ class CustomContainer @JvmOverloads constructor(
                 "Невозможно добавить более $MAX_CHILD_COUNT дочерних элементов в этот FrameLayout"
             )
         }
+    }
+
+    private companion object {
+        const val MAX_CHILD_COUNT = 2
+        const val ALPHA_DURATION = 2000L
+        const val MOVEMENT_DURATION = 5000L
     }
 }
