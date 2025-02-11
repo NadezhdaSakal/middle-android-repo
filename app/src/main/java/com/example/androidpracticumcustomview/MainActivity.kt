@@ -1,11 +1,12 @@
 package com.example.androidpracticumcustomview
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import com.example.androidpracticumcustomview.ui.theme.CustomContainer
+import com.example.androidpracticumcustomview.ui.theme.MainScreen
 
 /*
 Задание:
@@ -19,8 +20,8 @@ class MainActivity : ComponentActivity() {
         Раскомментируйте нужный вариант
          */
         startXmlPracticum() // «традиционный» android (XML)
-//          setContent { // Jetpack Compose
-//             MainScreen()
+    //         setContent { // Jetpack Compose
+    //          MainScreen()
     }
 
     private fun startXmlPracticum() {
@@ -28,18 +29,22 @@ class MainActivity : ComponentActivity() {
         setContentView(customContainer)
 
         val firstView = TextView(this).apply {
-            // TODO
-            // ...
+            text = context.getString(R.string.first_view)
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+            )
         }
 
         val secondView = TextView(this).apply {
-            // TODO
-            // ...
+            text = context.getString(R.string.second_view)
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+            )
         }
+        customContainer.addView(firstView)
+        customContainer.addView(secondView)
 
-        // Добавление второго элемента через некоторое время
-        Handler(Looper.getMainLooper()).postDelayed({
-            customContainer.addView(secondView)
-        }, 2000)
     }
 }
